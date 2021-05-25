@@ -27,15 +27,12 @@ MIGRANDO SISTEMA PHP PARA O LARAVEL 8
        -DB_PASSWORD=7070
 
 
-6) endpoints do caminho das rotas e seus respectivos metodos
-       
-        - php artisan make:controller FornecedorController --resource
+6) endpoints do caminho das rotas e seus respectivos metodos       
+              
         - php artisan make:controller --resource FornecedorController --model=Fornecedor
         - Chamando a rota pelo nome ->name('').
-        - passando parametro da primary key da tabela no banco ->parameters(['Fornecedor' => 'id']) ; 
 
         - Route::resource('/fornecedores', FornecedorController::class);
-        - Route::resource('Fornecedor', 'App\http\Controllers\FornecedorController')->parameters(['Fornecedor' => 'id']) ; 
 
         - Route::get('/fornecedores', 'App\Http\Controllers\FornecedorController@index')->name('fornecedor');
         - Route::get('/fornecedores/create', 'App\Http\Controllers\FornecedorController@create')->name('fornecedorCreate');
@@ -44,6 +41,10 @@ MIGRANDO SISTEMA PHP PARA O LARAVEL 8
         - Route::put('/fornecedores/update', 'App\Http\Controllers\FornecedorController@update')->name('fornecedorUpdate');
         - Route::delete('/fornecedores/destroy', 'App\Http\Controllers\FornecedorController@destroy')->name('fornecedorDestroy');
 
+        II)Habilitar o controller das rotas Route>Web.php
+
+            use App\http\Controllers\ProdutoVendaController;
+
 7) Retornar o caminho e metodo index de fornecedores
 
           public function index(){  
@@ -51,6 +52,8 @@ MIGRANDO SISTEMA PHP PARA O LARAVEL 8
           return view('fornecedor.index');  
 
           }
+
+         incluir
 
 8) Criar Repositorio e suas respectivas views fornecedor>index.blade.php
 
@@ -62,7 +65,7 @@ MIGRANDO SISTEMA PHP PARA O LARAVEL 8
 
           <form method="post" action="{ route('fornecedores.create') }" class="row g-3">
 
-    II)Criar tabela fornecedores e seu cabeçario <head>
+    II)Criar tabela fornecedores e seu cabeçario <head>d
 
         - <table>
         - dentro da table criar o cabecario da tabela 
@@ -517,3 +520,6 @@ MIGRANDO SISTEMA PHP PARA O LARAVEL 8
 
 
 	<!--		@foreach( $estados as $estado ) <option value="{{ $estado->st_name }}">{{ $estado->st_name }}</option>@endforeach	 -->
+        - passando parametro da primary key da tabela no banco ->parameters(['Fornecedor' => 'id']) ; 
+
+        - Route::resource('Fornecedor', 'App\http\Controllers\FornecedorController')->parameters(['Fornecedor' => 'id']) ; 

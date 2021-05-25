@@ -10,11 +10,11 @@
 		<div class="card-title d-flex align-items-center">
 			<div><i class="bx bxs-user me-1 font-22 text-white"></i>
 			</div>
-			<h5 class="mb-0 text-white">Produtos dos Fornecedores</h5>
+			<h5 class="mb-0 text-white">Adicionar Pedidos</h5>
 		</div>
 
 		<hr>	
-		<form method="post" action="{{ route('produto.store') }}" class="row g-3">
+		<form method="post" action="{{ route('pedido.store') }}" class="row g-3">
         @csrf
         @method('post')
         
@@ -24,7 +24,7 @@
 		<div class="card-title d-flex align-items-center">
 			<div><i class=" me-1 font-22 text-white"></i>
 			</div>
-			<h5 class="mb-0 text-white">informações do Produto</h5>
+			<h5 class="mb-0 text-white">informações dos pedidos</h5>
 		</div>
 		<hr>		
            	</div>           
@@ -37,22 +37,8 @@
                                     <div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
 										<input type="text" class="form-control" name="prod_category" placeholder="Categoria" rows="1"></input>
-									</div>
-                                    <div class="col-6">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="prod_unit" placeholder="Unidade" rows="1"></input>
-									</div>
-                                    <div class="col-6">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="prod_ncm" placeholder="NCM" rows="1"></input>
-									</div>
-									<div class="col-12">
-										<label for="inputAddress" class="form-label"></label>
-										<textarea type="text" class="form-control" name="prod_note" placeholder="Notes" rows="5"></textarea>
-									</div>
-									<div class="col-12">
-										<button type="submit" class="btn btn-light px-5">Add Produto</button>
-									</div>
+									
+								
 								
 		</form>
 			</div>				

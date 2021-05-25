@@ -14,7 +14,7 @@
 		</div>
 
 		<hr>	
-		<form method="post" action="{{ route('produto.store') }}" class="row g-3">
+		<form method="post" action="{{ route('produtoVenda.store') }}" class="row g-3">
         @csrf
         @method('post')
         
@@ -31,24 +31,44 @@
 				 <div class="col-6">
 				 <label for="inputAddress" class="form-label"></label>
 				 				
-								<input type="text" class="form-control" name="prod_name" placeholder="Produto" rows="1"></input>
+								<input type="text" class="form-control" name="product_sale_name" placeholder="Produto" rows="1"></input>
 									</div>
 									
                                     <div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="prod_category" placeholder="Categoria" rows="1"></input>
+										<input type="text" class="form-control" name="product_sale_category" placeholder="Categoria" rows="1"></input>
 									</div>
                                     <div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="prod_unit" placeholder="Unidade" rows="1"></input>
+										<input type="text" class="form-control" name="product_sale_unit" placeholder="Unidade de Medida" rows="1"></input>
 									</div>
                                     <div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="prod_ncm" placeholder="NCM" rows="1"></input>
+										<input type="text" class="form-control" name="product_sale_ncm" placeholder="NCM" rows="1"></input>
 									</div>
-									<div class="col-12">
+                                    <div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
-										<textarea type="text" class="form-control" name="prod_note" placeholder="Notes" rows="5"></textarea>
+										<input type="text" class="form-control" name="product_sale_group" placeholder="Grupo" rows="1"></input>
+									</div>
+                                    <div class="col-6">
+										<label for="inputAddress" class="form-label"></label>
+										<input type="text" class="form-control" name="product_sale_character" placeholder="Caracter" rows="1"></input>
+									</div>
+                                    <div class="col-6">
+										<label for="inputAddress" class="form-label"></label>
+										<input type="text" class="form-control" name="product_sale_color" placeholder="Cor" rows="1"></input>
+									</div>
+									<div class="col-6">
+										<label for="inputAddress" class="form-label"></label>
+										<textarea type="text" class="form-control" name="product_sale_code" placeholder="Código" rows="1"></textarea>
+									</div>
+                                    <div class="col-12">
+										<label for="inputAddress" class="form-label"></label>
+										<textarea type="text" class="form-control" name="product_sale_family" placeholder="Familia" rows="1"></textarea>
+									</div>
+                                    <div class="col-12">
+										<label for="inputAddress" class="form-label"></label>
+										<textarea type="text" class="form-control" name="product_sale_obs" placeholder="Nota de Obersavação" rows="5"></textarea>
 									</div>
 									<div class="col-12">
 										<button type="submit" class="btn btn-light px-5">Add Produto</button>

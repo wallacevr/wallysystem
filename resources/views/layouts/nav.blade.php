@@ -2,10 +2,10 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFqbCAIHgE1TQ/profile-displayphoto-shrink_200_200/0/1615315050656?e=1626307200&v=beta&t=Gln8JbF6l73JvJ0x80zIyv9rfZ7GXhUGhWYN9NbxDo4" class="logo-icon" alt="logo icon">
+            <img src="https://siliplastic.com.br/erp/assets/images/logo.png" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h4 class="logo-text"></h4>
+            <h4 class="logo-text">Siliplastic</h4>
         </div>
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
         </div>
@@ -23,7 +23,7 @@
         <li class="menu-label">Compras</li>
         <li
         >
-            <a href="#">
+            <a href=" {{ route('pedido.index') }} ">
                 <div class="parent-icon"><i class='bx bx-file-find'></i>
                 </div>
                 <div class="menu-title">Pedidos</div>
@@ -65,7 +65,7 @@
         </li>
         <li
         >
-            <a href="#">
+            <a href=" {{ route('pedidoVenda.index') }} ">
                 <div class="parent-icon"><i class='bx bx-file-find'></i>
                 </div>
                 <div class="menu-title">Pedidos</div>
@@ -73,7 +73,7 @@
         </li>
         <li
         >
-            <a href="#">
+            <a href=" {{ route('produtoVenda.index') }} ">
                 <div class="parent-icon"><i class='bx bx-box'></i>
                 </div>
                 <div class="menu-title">Produtos</div>
