@@ -39,7 +39,10 @@ class ProdutoVendaController extends Controller
      */
     public function store(Request $request)
     {
-        $produtosVenda = ProdutoVenda::all();
+
+    //    dd($request->all());
+      
+        $produtosVenda = ProdutoVenda::create($request->all());
 
         return redirect()->route('produtoVenda.index');
 

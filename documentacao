@@ -523,3 +523,13 @@ MIGRANDO SISTEMA PHP PARA O LARAVEL 8
         - passando parametro da primary key da tabela no banco ->parameters(['Fornecedor' => 'id']) ; 
 
         - Route::resource('Fornecedor', 'App\http\Controllers\FornecedorController')->parameters(['Fornecedor' => 'id']) ; 
+
+
+
+------------------------------------ GIT HUB ----------------------------------------------------------------------
+
+
+        - git status                         ->  ver alterações no projeto
+        - git add .                          ->  adicionar as alterações no projeto
+        - git commit -m "descriçãodocommit"  -> descrever o commit
+        - git push -f                        ->  pra forçar o envio do arquivo pro git

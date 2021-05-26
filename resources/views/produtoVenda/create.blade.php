@@ -48,7 +48,7 @@
 									</div>
                                     <div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="product_sale_group" placeholder="Grupo" rows="1"></input>
+										<input type="number" class="form-control" name="product_sale_group" placeholder="Grupo" rows="1"></input>
 									</div>
                                     <div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
@@ -56,7 +56,7 @@
 									</div>
                                     <div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="product_sale_color" placeholder="Cor" rows="1"></input>
+										<input type="number" class="form-control" name="product_sale_color" placeholder="Cor" rows="1"></input>
 									</div>
 									<div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
