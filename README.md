@@ -13,7 +13,7 @@ MIGRANDO SISTEMA PHP PARA O LARAVEL 8
        
        - create database Fornecedores;
 
-4) Importar o banco de dados
+4) Importar o banco de dados 
        
        - importar o banco de dados do sistema antigo em php
 
