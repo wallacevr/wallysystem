@@ -27,7 +27,7 @@ MIGRANDO SISTEMA PHP PARA O LARAVEL 8
        -DB_PASSWORD=7070
 
 
-6) endpoints do caminho das rotas e seus respectivos metodos       
+6) endpoints do caminho das rotas e seus respectivos metodos        
               
         - php artisan make:controller --resource FornecedorController --model=Fornecedor
         - Chamando a rota pelo nome ->name('').
