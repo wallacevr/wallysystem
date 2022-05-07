@@ -40,12 +40,12 @@
 
 	<div class="page-wrapper">
 		<div class="page-content">
-            
+
 			@yield("wrapper")
 
         </div>
     </div>
-	
+
 
 		<!--start overlay-->
 		<div class="overlay toggle-icon"></div>
@@ -53,7 +53,7 @@
 		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
 		<!--End Back To Top Button-->
 		<footer class="page-footer">
-			<p class="mb-0">Copyright © {{ date('Y') }}. alfredogomes1995@gmail.com</p>
+			<p class="mb-0">Copyright © {{ date('Y') }}. Wallacevr@gmail.com</p>
 		</footer>
 	</div>
 	<!--end wrapper-->
@@ -67,7 +67,7 @@
 	<!--app JS-->
 	<script src="{{ asset('assets/js/app.js') }}"></script>
 
-	
+
 	@yield("script")
 </body>
 

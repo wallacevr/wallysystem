@@ -7,7 +7,7 @@ use App\http\Controllers\FornecedorController;
 use App\http\Controllers\ProdutoVendaController;
 use App\http\Controllers\PedidoController;
 use App\http\Controllers\PedidoVendaController;
-
+use App\http\Controllers\UserController;
 
 //controllers p/ manipulamos a lógica de tratamento das requisições recebendo os dados do model e transmitindo-os p/ view
 
@@ -16,15 +16,21 @@ Route::get('/', function () {
 });
 
 
-//Registrando as Rotas e os Verbos HTTP Padrões dos Endpoints 
+//Registrando as Rotas e os Verbos HTTP Padrões dos Endpoints
 
 Route::resource('/fornecedor', FornecedorController::class);
 Route::resource('/pedidoVenda', PedidoVendaController::class);
 Route::resource('/pedido', PedidoController::class);
 Route::resource('/produto', ProdutoController::class);
 Route::resource('/produtoVenda', ProdutoVendaController::class);
+Route::resource('/usuarios', UserController::class);
 
 
+
+Route::get('/cadastro', function (){
+    return view('usuarios.create');
+
+});
 
 
 
