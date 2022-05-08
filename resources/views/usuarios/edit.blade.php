@@ -10,13 +10,13 @@
 		<div class="card-title d-flex align-items-center">
 			<div><i class="bx bxs-user me-1 font-22 text-white"></i>
 			</div>
-			<h5 class="mb-0 text-white">Cadastro de Usuários</h5>
+			<h5 class="mb-0 text-white">Alteração de Usuário</h5>
 		</div>
 
 		<hr>
-		<form method="post" action="{{ route('usuarios.store') }}" class="row g-3">
+		<form method="post" action="{{ route('usuarios.update',['user'=> $user->id]) }}" class="row g-3">
         @csrf
-        @method('post')
+        @method('put')
 
 
 
@@ -31,7 +31,7 @@
 
 		<hr>
         <div class="row">
-            <div class="col-12">
+        <div class="col-12">
             @if($errors->any())
 
                 <div class="alert alert-danger" role="alert">
@@ -45,7 +45,7 @@
             </div>
 
             @endif
-            </div>
+        </div>
 
 
         </div>
@@ -53,23 +53,16 @@
 				 <div class="col-6">
 				 <label for="inputAddress" class="form-label"></label>
 
-								    <input type="text" class="form-control" name="name" placeholder="Nome" rows="1"></input>
+								    <input type="text" class="form-control" name="name" placeholder="Nome" rows="1" value="{{ $user->name }}"></input>
 
 
                                 </div>
 
                                     <div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
-										<input type="email" class="form-control" name="email" placeholder="Email" rows="1"></input>
+										<input type="email" class="form-control" name="email" placeholder="Email" rows="1" value="{{ $user->email }}"></input>
 									</div>
-                                    <div class="col-6">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="password" class="form-control" name="password" placeholder="Senha" rows="1"></input>
-									</div>
-                                    <div class="col-6">
-										<label for="inputAddress" class="form-label"></label>
-										<input id="password-confirm" class="form-control" type="password" name="password_confirmation" required  placeholder="Confirmação de Senha" rows="1"></input>
-									</div>
+
 
 									<div class="col-12">
 										<button type="submit" class="btn btn-light px-5">Salvar</button>

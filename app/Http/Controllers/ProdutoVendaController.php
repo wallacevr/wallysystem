@@ -12,6 +12,8 @@ class ProdutoVendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         $produtosVenda = ProdutoVenda::all();
@@ -41,7 +43,7 @@ class ProdutoVendaController extends Controller
     {
 
     //    dd($request->all());
-      
+
         $produtosVenda = ProdutoVenda::create($request->all());
 
         return redirect()->route('produtoVenda.index');

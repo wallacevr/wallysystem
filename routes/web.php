@@ -13,7 +13,7 @@ use App\http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 
 //Registrando as Rotas e os Verbos HTTP Padrões dos Endpoints
@@ -23,15 +23,21 @@ Route::resource('/pedidoVenda', PedidoVendaController::class);
 Route::resource('/pedido', PedidoController::class);
 Route::resource('/produto', ProdutoController::class);
 Route::resource('/produtoVenda', ProdutoVendaController::class);
-Route::resource('/usuarios', UserController::class);
 
 
 
-Route::get('/cadastro', function (){
-    return view('usuarios.create');
 
+Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
+        //Usuario
+        Route::prefix('usuario')->group(function(){
+            Route::get('/', 'App\Http\Controllers\UserController@index')->name('usuario.index');
+            Route::get('/cadastro', 'App\Http\Controllers\UserController@create')->name('usuario.create');
+            Route::post('/salvar', 'App\Http\Controllers\UserController@store')->name('usuarios.store');
+            Route::get('/alterar/{id}', 'App\Http\Controllers\UserController@edit')->name('usuarios.edit');
+            Route::put('/alterar/{user}', 'App\Http\Controllers\UserController@update')->name('usuarios.update');
+            Route::delete('/deletar/{user}', 'App\Http\Controllers\UserController@destroy')->name('usuarios.destroy');
+        });
 });
-
 
 
 
@@ -67,3 +73,7 @@ Route::get('/cadastro', function (){
 //Route::put('/fornecedores/update', 'App\Http\Controllers\FornecedorController@update')->name('fornecedorUpdate');
 //Route::delete('/fornecedores/destroy', 'App\Http\Controllers\FornecedorController@destroy')->name('fornecedorDestroy');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

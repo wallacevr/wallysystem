@@ -22,6 +22,25 @@
             </div>
                 <div class="row"><div class="col-sm-12">
         <div class="table-responsive">
+        <div class="row">
+            <div class="col-12">
+            @if($errors->any())
+
+                <div class="alert alert-danger" role="alert">
+                @foreach($errors->all() as $error)
+                    {{ $error }} <br>
+                @endforeach
+                </div>
+            @elseif(session()->has('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+
+            @endif
+            </div>
+
+
+        </div>
         <table id="example" class="table table-striped table-bordered " style="width: 100%;">
 
         <thead>
@@ -49,10 +68,10 @@
                     <td>{{ $user->created_at }}</td>
                     <td>{{ $user->updated_at }}</td>
                     <td>
-                        <form action="" method="post">
+                        <form action="{{ route('usuarios.destroy',['user'=>$user->id]) }}" method="post">
                         @csrf
                         @method('delete')
-                            <a href="#" class="btn btn-warning">Editar</a>
+                            <a href="{{ route('usuarios.edit',['id'=>$user->id]) }}" class="btn btn-warning">Editar</a>
 
                             <button type="submit"class="btn btn-danger">Excluir</button>
                         </form>
