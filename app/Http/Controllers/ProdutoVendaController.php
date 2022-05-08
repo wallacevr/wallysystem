@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProdutoVenda;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\ProdutosVendaRequest;
 class ProdutoVendaController extends Controller
 {
     /**
@@ -39,14 +39,34 @@ class ProdutoVendaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProdutosVendaRequest $request)
     {
 
-    //    dd($request->all());
+    //
+        try {
+            //code...
+            $produto =  new ProdutoVenda;
+            $produto->product_sale_name = $request->product_sale_name;
+            $produto->product_sale_category = $request->product_sale_category;
+            $produto->product_sale_color = $request->product_sale_color;
+            $produto->product_sale_ncm = $request->product_sale_ncm;
+            $produto->product_sale_obs = $request->product_sale_obs;
+            $produto->product_sale_group = $request->product_sale_group;
+            $produto->product_sale_character = $request->product_sale_character;
+            $produto->product_sale_Code = $request->product_sale_code;
+            $produto->product_sale_family = $request->product_sale_family;
+            $produto->product_sale_price = $request->product_sale_price;
+            $produto->save();
+            return redirect()->route('produtoVenda.index')->withSuccess('Produto de Venda cadastrado com sucesso!');
+        } catch (\Throwable $Error) {
+            //throw $th;
+            return redirect()->back()->withInput($request->all())->withErrors([
+                'message' => [
+                    $Error->getMessage()
+                ],
+            ]);
+        }
 
-        $produtosVenda = ProdutoVenda::create($request->all());
-
-        return redirect()->route('produtoVenda.index');
 
     }
 
@@ -67,8 +87,9 @@ class ProdutoVendaController extends Controller
      * @param  \App\Models\ProdutoVenda  $produtoVenda
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProdutoVenda $produtoVenda)
+    public function edit($id)
     {
+        $produtoVenda = ProdutoVenda::find($id);
         return view ('produtoVenda.edit', compact ('produtoVenda'));
     }
 
@@ -81,9 +102,19 @@ class ProdutoVendaController extends Controller
      */
     public function update(Request $request, ProdutoVenda $produtoVenda)
     {
-        $produtoVenda->update($request->all());
 
-        return redirect()->route('produtoVenda.index');
+        try {
+            $produtoVenda->update($request->all());
+
+            return redirect()->route('produtoVenda.index')->withSuccess('Produto de Venda alterado com sucesso!');
+        } catch (\Throwable $Error) {
+            return redirect()->back()->withErrors([
+                'message' =>[
+                    $Error->getMessage()
+                ],
+            ]);
+        }
+
     }
 
     /**
@@ -94,6 +125,17 @@ class ProdutoVendaController extends Controller
      */
     public function destroy(ProdutoVenda $produtoVenda)
     {
-        //
+        try {
+
+            $produtoVenda->delete();
+            return redirect()->route('produtoVenda.index')->withSuccess('Produto de Venda deletado com sucesso!');
+        } catch (\Throwable $Error) {
+            //throw $th;
+            return redirect()->back()->withErrors([
+                'message' =>[
+                    $Error->getMessage()
+                ],
+            ]);
+        }
     }
 }

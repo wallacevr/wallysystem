@@ -90,12 +90,12 @@ class UserController extends Controller
 
     public function destroy(User $user){
         try {
-            
+
             $user->delete();
             return redirect()->route('usuario.index')->withSuccess('Usuario deletado com sucesso!');
         } catch (\Throwable $Error) {
             //throw $th;
-            return redirect()->back()->withInput($requestt->all())->withErrors([
+            return redirect()->back()->withErrors([
                 'message' =>[
                     $Error->getMessage()
                 ],

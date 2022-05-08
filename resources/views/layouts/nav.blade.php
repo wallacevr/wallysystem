@@ -125,7 +125,7 @@
         <li class="menu-label">Configurações</li>
         <li
         >
-            <a href="#">
+            <a href="{{route('usuario.index')}}">
                 <div class="parent-icon"><i class='bx bx-user'></i>
                 </div>
                 <div class="menu-title">Usuários</div>

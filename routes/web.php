@@ -8,12 +8,13 @@ use App\http\Controllers\ProdutoVendaController;
 use App\http\Controllers\PedidoController;
 use App\http\Controllers\PedidoVendaController;
 use App\http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 
 //controllers p/ manipulamos a lógica de tratamento das requisições recebendo os dados do model e transmitindo-os p/ view
 
 Route::get('/', function () {
     return view('index');
-})->name('home');
+});
 
 
 //Registrando as Rotas e os Verbos HTTP Padrões dos Endpoints
@@ -22,8 +23,8 @@ Route::resource('/fornecedor', FornecedorController::class);
 Route::resource('/pedidoVenda', PedidoVendaController::class);
 Route::resource('/pedido', PedidoController::class);
 Route::resource('/produto', ProdutoController::class);
-Route::resource('/produtoVenda', ProdutoVendaController::class);
 
+Route::resource('/home', HomeController::class);
 
 
 
@@ -37,29 +38,15 @@ Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
             Route::put('/alterar/{user}', 'App\Http\Controllers\UserController@update')->name('usuarios.update');
             Route::delete('/deletar/{user}', 'App\Http\Controllers\UserController@destroy')->name('usuarios.destroy');
         });
+        Route::prefix('produtoVenda')->group(function(){
+            Route::get('/', 'App\Http\Controllers\ProdutoVendaController@index')->name('produtoVenda.index');
+            Route::get('/cadastro', 'App\Http\Controllers\ProdutoVendaController@create')->name('produtoVenda.create');
+            Route::post('/salvar', 'App\Http\Controllers\ProdutoVendaController@store')->name('produtoVenda.store');
+            Route::get('/alterar/{id}', 'App\Http\Controllers\ProdutoVendaController@edit')->name('produtoVenda.edit');
+            Route::put('/alterar/{produtoVenda}', 'App\Http\Controllers\ProdutoVendaController@update')->name('produtoVenda.update');
+            Route::delete('/deletar/{produtoVenda}', 'App\Http\Controllers\ProdutoVendaController@destroy')->name('produtoVenda.destroy');
+        });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -76,4 +63,4 @@ Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
