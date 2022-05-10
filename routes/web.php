@@ -13,9 +13,11 @@ use App\Http\Controllers\HomeController;
 //controllers p/ manipulamos a lógica de tratamento das requisições recebendo os dados do model e transmitindo-os p/ view
 
 Route::get('/', function () {
-    return view('index');
+    return view('auth.login');
 });
-
+Route::get('/cadastro', function () {
+    return view('auth.cadEmpresa');
+});
 
 //Registrando as Rotas e os Verbos HTTP Padrões dos Endpoints
 
@@ -62,5 +64,5 @@ Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
 
 
 Auth::routes();
-
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 //Route::get('/home', 'HomeController@index')->name('home');

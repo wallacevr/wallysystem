@@ -153,7 +153,7 @@
 						<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<img src="{{ asset('assets/images/avatars/alfredo.jpg') }}" class="user-img" alt="user avatar">
 							<div class="user-info ps-3">
-								<p class="user-name mb-0">Alfredo Gomes</p>
+								<p class="user-name mb-0">{{Auth::user()->name}}</p>
 								<p class="designattion mb-0">Master</p>
 							</div>
 						</a>
@@ -163,7 +163,8 @@
 							<li>
 								<div class="dropdown-divider mb-0"></div>
 							</li>
-							<li><a class="dropdown-item" href="javascript:;"><i class='bx bx-log-out-circle'></i><span>Sair</span></a>
+							<li><a class="dropdown-item" href="{{ route('logout') }}">
+                            <i class='bx bx-log-out-circle'></i><span>Sair</span></a>
 							</li>
 						</ul>
 					</div>
