@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     //
@@ -19,7 +21,8 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
+
+        $users = User::where('empresa_id','=',Auth::user()->empresa_id)->get();
 
         return view('usuarios.index', compact('users'));
     }
@@ -40,6 +43,7 @@ class UserController extends Controller
             $usuario->email       =   $request->email;
             $usuario->password    =   Hash::make($request->password);
             $usuario->grupo_id    =   1;
+            $usuario->empresa     =  Auth::user()->empresa_id;
             $usuario->save();
             return redirect()->route('usuario.index')->withSuccess('Usuário cadastrado com sucesso!');
 
@@ -56,7 +60,8 @@ class UserController extends Controller
     public function edit($id)
     {
 
-        $user = User::find($id);
+        $user = User::where('id','=',$id)
+                ->where('empresa_id','=',Auth::user()->empresa_id)->get();
 
         return view('usuarios.edit', compact('user'));
     }
@@ -74,7 +79,7 @@ class UserController extends Controller
             $user->name        =   $request->name;
             $user->email       =   $request->email;
             $user->password    =   Hash::make($request->password);
-            $user->grupo_id    =   1;
+            
             $user->save();
             return redirect()->route('usuario.index')->withSuccess('Usuário alterado com sucesso!');
 

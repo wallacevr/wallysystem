@@ -36,7 +36,7 @@
                 <div class="card-header">{{ __('Cadastro de Empresa') }}</div>
 
                 <div class="card-body">
-                <form  class="row gy-2 gx-3 align-items-center m-2"  action="#" method="POST" enctype="multipart/form-data" name="clienteform" id="clienteform" >
+                <form  class="row gy-2 gx-3 align-items-center m-2"  action="{{route('empresas.create')}}" method="POST" enctype="multipart/form-data" name="clienteform" id="clienteform" >
 
 @csrf
 <div class="row pl-4">
@@ -44,25 +44,29 @@
                 <p class="text-muted ">Inclua aqui os dados cadastrais da Empresa</p>
             </div>
         </div>
-        <div class="col-12">
-                @error('message')
-                    <div class="alert alert-danger" role="alert">
-                        {{ $message }}
-                    </div>
-                @enderror
+        <div class="row">
+            <div class="col-12">
+            @if($errors->any())
+
+                <div class="alert alert-danger" role="alert">
+                @foreach($errors->all() as $error)
+                    {{ $error }} <br>
+                @endforeach
+                </div>
+            @elseif(session()->has('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
             </div>
 
-        <div class="col-12">
-            @if (session('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('success') }}
-                </div>
             @endif
+            </div>
+
+
         </div>
 
 
         <div class="col-auto w-50 mb-2">
-                    <input type="text"  name="name" class="form-control" placeholder="Razão Social"  >
+                    <input type="text"  name="razaosocial" class="form-control" placeholder="Razão Social"  >
 
             </div>
 
@@ -72,6 +76,18 @@
                 <input type="text"  id="cnpj" name="cnpj" class="form-control" placeholder="CNPJ"  >
 
             </div>
+            <div class="col-auto w-50 mb-2">
+                <input type="text"  id="ie" name="ie" class="form-control" placeholder="I.E."  >
+
+            </div>
+            <div class="col-auto w-50 mb-2">
+                <input type="text"  id="ccm" name="ccm" class="form-control" placeholder="C.C.M."  >
+
+            </div>
+
+
+
+
             <div class="col-6 mb-2">
                 <input  type="email" class="form-control" name="email" placeholder="Email" >
 
@@ -91,11 +107,11 @@
             </div>
 
             <div class="col-auto w-25 mb-2">
-                <input  type="text" class="form-control" name="numero_endereco" placeholder="Nº" >
+                <input  type="text" class="form-control" name="num" placeholder="Nº" >
 
             </div>
             <div class="col-auto w-25 mb-2">
-                <input type="text" class="form-control" name="complemento_endereco" placeholder="Complemento"  >
+                <input type="text" class="form-control" name="complemento" placeholder="Complemento"  >
 
             </div>
             <div class="col-12  mb-2">
@@ -110,9 +126,14 @@
                 <input  type="text" class="form-control "  placeholder="UF" name="uf"  >
 
             </div>
+            <div class="col-12">
+
+                 <input id="nome" class="form-control" type="text" name="nome" required  placeholder="Nome do Admin" ></input>
+            </div>
             <div class="col-6">
                 <input type="password" class="form-control" name="password" placeholder="Senha" rows="1"></input>
             </div>
+
             <div class="col-6">
 
                 <input id="password-confirm" class="form-control" type="password" name="password_confirmation" required  placeholder="Confirmação de Senha" rows="1"></input>

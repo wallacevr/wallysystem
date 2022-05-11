@@ -7,10 +7,12 @@
 
 @section('wrapper')
 
-<div class="card-body">
-
-	<div id="example_wrapper" class="dataTables_wrapper dt-bootstrap5">
-        <div class="row">
+<div class="card-body table-responsive">
+<div class="row">
+    <h1 class="text-center">PRODUTOS DE VENDA</h1>
+</div>
+	<div id="example_wrapper" class="dataTables_wrapper dt-bootstrap5 ">
+        <div class="row w-100">
 
             <div class="col-sm-12 col-md-6"></div>
                 <div id="example_filter" class="dataTables_filter">
@@ -20,7 +22,7 @@
             </div>
                 <div class="row"><div class="col-sm-12">
         <div class="table-responsive">
-        <div class="row">
+        <div class="row w-25">
             <div class="col-12">
             @if($errors->any())
 

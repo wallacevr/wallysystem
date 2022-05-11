@@ -14,6 +14,7 @@
 		</div>
 
 		<hr>
+       @foreach($produtoVenda as $produtoVenda)
 		<form method="post" action="{{ route('produtoVenda.update',['produtoVenda'=> $produtoVenda->product_sale_id]) }}" class="row g-3">
 		@csrf
 		@method('put')
@@ -66,13 +67,14 @@
 									</div>
                                     <div class="input-group mb-3 col-sm">
                                          <label for="inputAddress" class="form-label"></label>
-                                        <input  type="number"   name="product_sale_price" placeholder="Preço"  min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+                                        <input  type="number"   name="product_sale_price" placeholder="Preço"  min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" value="{{ $produtoVenda->product_sale_price }}" />
                                     </div>
 									<div class="col-6">
 										<button type="submit" class="btn btn-success">Atualizar Produto</button>
 									</div>
 
 		</form>
+        @endforeach
 			</div>
 
 @endsection

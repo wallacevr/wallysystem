@@ -28,6 +28,7 @@ class EmpresaRequest extends FormRequest
             'razaosocial.max'=>'O Tamanho máximo do campo Razão Social é de 255 caracteres!',
             'razaosocial.string' => 'Preecha o campo Razão Social com Letras e/ou Números!',
             'cnpj.required'=>'Campo CNPJ é Obrigatório!',
+            'cnpj.unique' =>'CNPJ já cadastrado!',
             'cnpj.size'=>'O Tamanho do campo CNPJ é inválido!',
             'celular.required' => 'O campo celular é obrigatório!',
             'email.required' => 'O Campo Email é obrigatório!',
@@ -57,6 +58,9 @@ class EmpresaRequest extends FormRequest
             'password.string'=>'Preencha senha somente com letras e numeros!',
             'password.min'=>'Senha deve ter no mínimo 8 caracteres!',
             'password.confirmed'=>'Senha e confirmação de senha devem ser iguais!',
+            'nome.required'=>'Campo Nome do Admin é Obrigatório!',
+            'nome.max'=>'O Tamanho máximo do campo Nome do Admin é de 255 caracteres!',
+            'nome.string' => 'Preecha o campo Nome do Admin com Letras e/ou Números!',
         ];
     }
 
@@ -66,9 +70,9 @@ class EmpresaRequest extends FormRequest
         switch($this->method()){
             case 'POST':
                 return [
-                    'razaosocial'  => 'required|string|size:255',
-                    'cnpj'  => 'required|string|size:18',
-                    'email' => 'required|email|max:255|unique:users',
+                    'razaosocial'  => 'required|string|max:255',
+                    'cnpj'  => 'required|string|size:18|unique:empresa',
+                    'email' => 'required|email|max:255|unique:empresa',
                     'celular' =>'required|size:14|string',
                     'cep' =>'required|size:9|string',
                     'endereco' =>'required|max:255|string',
@@ -77,7 +81,8 @@ class EmpresaRequest extends FormRequest
                     'bairro' =>'required|max:255|string',
                     'cidade' =>'required|max:255|string',
                     'uf' =>'required|size:2|string',
-                    'password'=>'required|min:8|string'
+                    'password'=>'required|min:8|string',
+                    'nome'  => 'required|string|max:255',
                 ];
                 break;
             case 'PUT':

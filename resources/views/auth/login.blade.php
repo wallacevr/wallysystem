@@ -37,6 +37,19 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                <div class="row">
+            <div class="col-12">
+
+               @if(session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+
+                @endif
+                </div>
+
+
+            </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

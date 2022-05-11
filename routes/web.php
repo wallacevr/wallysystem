@@ -19,6 +19,10 @@ Route::get('/cadastro', function () {
     return view('auth.cadEmpresa');
 });
 
+Route::get('pagamento', function () {
+    return view('pagamentos.pagamento');
+});
+
 //Registrando as Rotas e os Verbos HTTP Padrões dos Endpoints
 
 Route::resource('/fornecedor', FornecedorController::class);
@@ -26,7 +30,7 @@ Route::resource('/pedidoVenda', PedidoVendaController::class);
 Route::resource('/pedido', PedidoController::class);
 Route::resource('/produto', ProdutoController::class);
 
-Route::resource('/home', HomeController::class);
+
 
 
 
@@ -48,6 +52,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
             Route::put('/alterar/{produtoVenda}', 'App\Http\Controllers\ProdutoVendaController@update')->name('produtoVenda.update');
             Route::delete('/deletar/{produtoVenda}', 'App\Http\Controllers\ProdutoVendaController@destroy')->name('produtoVenda.destroy');
         });
+     
 });
 
 
@@ -64,5 +69,6 @@ Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
 
 
 Auth::routes();
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
+Route::post('/Empresas/create', '\App\Http\Controllers\EmpresaController@store')->name('empresas.create');
 //Route::get('/home', 'HomeController@index')->name('home');

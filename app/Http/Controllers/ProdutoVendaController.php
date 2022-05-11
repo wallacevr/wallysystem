@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\ProdutoVenda;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProdutosVendaRequest;
@@ -16,7 +16,7 @@ class ProdutoVendaController extends Controller
 
     public function index()
     {
-        $produtosVenda = ProdutoVenda::all();
+        $produtosVenda = ProdutoVenda::where('empresa_id','=',Auth::user()->empresa_id)->get();
 
         return view ('produtoVenda.index', compact('produtosVenda'));
     }
@@ -56,6 +56,7 @@ class ProdutoVendaController extends Controller
             $produto->product_sale_Code = $request->product_sale_code;
             $produto->product_sale_family = $request->product_sale_family;
             $produto->product_sale_price = $request->product_sale_price;
+            $produto->empresa_id =  Auth::user()->empresa_id;
             $produto->save();
             return redirect()->route('produtoVenda.index')->withSuccess('Produto de Venda cadastrado com sucesso!');
         } catch (\Throwable $Error) {
@@ -89,7 +90,7 @@ class ProdutoVendaController extends Controller
      */
     public function edit($id)
     {
-        $produtoVenda = ProdutoVenda::find($id);
+        $produtoVenda = ProdutoVenda::where('empresa_id','=',Auth::user()->empresa_id)->get();
         return view ('produtoVenda.edit', compact ('produtoVenda'));
     }
 

@@ -5,7 +5,8 @@
 @endsection
 
 @section('wrapper')
-
+@foreach($user as $user)
+  
 <div class="card-body p-2">
 		<div class="card-title d-flex align-items-center">
 			<div><i class="bx bxs-user me-1 font-22 text-white"></i>
@@ -50,8 +51,9 @@
 
         </div>
         </div>
-				 <div class="col-6">
-				 <label for="inputAddress" class="form-label"></label>
+
+                                <div class="col-6">
+				                    <label for="inputAddress" class="form-label"></label>
 
 								    <input type="text" class="form-control" name="name" placeholder="Nome" rows="1" value="{{ $user->name }}"></input>
 
@@ -70,7 +72,7 @@
 
 		</form>
 			</div>
-
+@endforeach
 @endsection
 
 @section('script')
