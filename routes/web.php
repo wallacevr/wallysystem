@@ -37,7 +37,7 @@ Route::resource('/produto', ProdutoController::class);
 Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
         //Usuario
         Route::prefix('usuario')->group(function(){
-            Route::get('/', 'App\Http\Controllers\UserController@index')->name('usuario.index');
+            Route::get('/listar', 'App\Http\Controllers\UserController@index')->name('usuario.index');
             Route::get('/cadastro', 'App\Http\Controllers\UserController@create')->name('usuario.create');
             Route::post('/salvar', 'App\Http\Controllers\UserController@store')->name('usuarios.store');
             Route::get('/alterar/{id}', 'App\Http\Controllers\UserController@edit')->name('usuarios.edit');
@@ -52,7 +52,15 @@ Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
             Route::put('/alterar/{produtoVenda}', 'App\Http\Controllers\ProdutoVendaController@update')->name('produtoVenda.update');
             Route::delete('/deletar/{produtoVenda}', 'App\Http\Controllers\ProdutoVendaController@destroy')->name('produtoVenda.destroy');
         });
-     
+        Route::prefix('cliente')->group(function(){
+            Route::get('/listar', 'App\Http\Controllers\UserController@clienteindex')->name('cliente.index');
+            Route::get('/cadastro', 'App\Http\Controllers\UserController@clientecreate')->name('cliente.create');
+            Route::post('/salvar', 'App\Http\Controllers\UserController@clientestore')->name('cliennte.store');
+            Route::get('/alterar/{id}', 'App\Http\Controllers\UserController@clienteedit')->name('cliente.edit');
+            Route::put('/alterar/{user}', 'App\Http\Controllers\UserController@clienteupdate')->name('cliente.update');
+            Route::delete('/deletar/{user}', 'App\Http\Controllers\UserController@clientedestroy')->name('cliente.destroy');
+        });
+
 });
 
 

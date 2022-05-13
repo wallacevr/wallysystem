@@ -81,7 +81,7 @@
         </li>
         <li
         >
-            <a href="#">
+            <a href="{{route('cliente.index')}}">
                 <div class="parent-icon"><i class='bx bx-user'></i>
                 </div>
                 <div class="menu-title">Clientes</div>
