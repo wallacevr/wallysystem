@@ -35,6 +35,7 @@ Route::resource('/produto', ProdutoController::class);
 
 
 Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
+    Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
         //Usuario
         Route::prefix('usuario')->group(function(){
             Route::get('/listar', 'App\Http\Controllers\UserController@index')->name('usuario.index');

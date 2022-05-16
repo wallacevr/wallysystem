@@ -16,6 +16,7 @@ class AdminAccess
      */
     public function handle(Request $request, Closure $next)
     {
+        
         if(Auth::check() AND Auth::user()->grupo_id==2){
             return $next($request);
         }

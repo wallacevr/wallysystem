@@ -27,6 +27,7 @@ class PedidoVendaController extends Controller
     public function create()
     {
         //
+        return view('pedidoVenda.create');
     }
 
     /**

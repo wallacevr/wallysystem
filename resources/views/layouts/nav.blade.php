@@ -14,7 +14,7 @@
     <ul class="metismenu" id="menu">
         <li
         >
-            <a href="http://127.0.0.1:8000/">
+            <a href="{{route('home')}}">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
                 </div>
                 <div class="menu-title">Inicial</div>
