@@ -9,15 +9,16 @@ class PedidoVenda extends Model
 {
     use HasFactory;
 
-    protected $table = 'sp_order_sale';
+    protected $table = 'pedidos_venda';
 
     public $timestamps = false;
 
-    protected $primaryKey = 'product_order_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
-           
-            'product_order_value_total',
-            'product_order_installments',
+
+            'empresa_id',
+            'user_id',
+            'cupom_id',
     ];
 }
