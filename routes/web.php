@@ -26,7 +26,7 @@ Route::get('pagamento', function () {
 //Registrando as Rotas e os Verbos HTTP Padrões dos Endpoints
 
 Route::resource('/fornecedor', FornecedorController::class);
-Route::resource('/pedidoVenda', PedidoVendaController::class);
+
 Route::resource('/pedido', PedidoController::class);
 Route::resource('/produto', ProdutoController::class);
 
@@ -37,6 +37,7 @@ Route::resource('/produto', ProdutoController::class);
 Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
     Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
         //Usuario
+        Route::resource('/pedidoVenda', PedidoVendaController::class);
         Route::prefix('usuario')->group(function(){
             Route::get('/listar', 'App\Http\Controllers\UserController@index')->name('usuario.index');
             Route::get('/cadastro', 'App\Http\Controllers\UserController@create')->name('usuario.create');

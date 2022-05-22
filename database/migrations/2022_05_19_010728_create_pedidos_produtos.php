@@ -14,6 +14,7 @@ class CreatePedidosProdutos extends Migration
     public function up()
     {
         Schema::create('pedidos_produtos', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('empresa_id')->foreignId('empresa_id')->references('id')->on('empresa');
             $table->unsignedBigInteger('pedido_id')->foreignId('pedido_id')->references('id')->on('pedidos_venda');
             $table->unsignedBigInteger('product_sale_id')->foreignId('product_sale_id')->references('product_sale_id')->on('produtos_venda');
@@ -21,7 +22,7 @@ class CreatePedidosProdutos extends Migration
             $table->decimal('valor');
             $table->decimal('desconto');
             $table->timestamps();
-       
+
         });
     }
 

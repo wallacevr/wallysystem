@@ -21,4 +21,12 @@ class PedidoVenda extends Model
             'user_id',
             'cupom_id',
     ];
+
+    public function produtosvenda()
+    {
+        return $this->belongsToMany(ProdutoVenda::class, 'pedidos_produtos', 'pedido_id', 'product_sale_id')
+        ->withPivot('qtd')
+        ->withPivot('valor')
+        ->withPivot('desconto');
+    }
 }

@@ -29,4 +29,9 @@ class ProdutoVenda extends Model
             'product_sale_family',
             'product_sale_price',
     ];
+
+    public function pedidosvenda()
+    {
+        return $this->belongsToMany(PedidoVenda::class, 'pedidos_produtos', 'product_sale_id', 'pedido_id');
+    }
 }
