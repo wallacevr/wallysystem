@@ -1,0 +1,6 @@
+Falta:
+Alteração de Pedido
+Listar pedidos
+Incluir coluna estoque em produtos de venda
+limitar quantidade vendida a quantidade em estoque (trigger)
+Iniciar modulo de Compras 

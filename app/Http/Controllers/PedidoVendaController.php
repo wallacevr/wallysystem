@@ -14,7 +14,7 @@ class PedidoVendaController extends Controller
      */
     public function index()
     {
-        $pedidosVenda = PedidoVenda::all();
+        $pedidosVenda = PedidoVenda::where('id','>',0)->with('cliente','produtosvenda')->get();
 
         return view('pedidoVenda.index', compact('pedidosVenda'));
     }
@@ -61,6 +61,7 @@ class PedidoVendaController extends Controller
     public function edit(PedidoVenda $pedidoVenda)
     {
         //
+        return view('pedidoVenda.edit', compact('pedidoVenda'));
     }
 
     /**

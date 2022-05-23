@@ -14,7 +14,7 @@
 
             <div class="col-sm-12 col-md-6"></div>
                 <div id="example_filter" class="dataTables_filter">
-                    <a href="{{ route('pedidovenda.create') }}" class="btn btn-success float-right">Adicionar</a>
+                    <a href="{{ route('pedidoVenda.create') }}" class="btn btn-success float-right">Adicionar</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
         <thead>
 			<tr role="row">
                 <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" >ID</th>
-                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Fornecedor</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Cliente</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending">Data</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" >Tipo do Produto</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending">Preço</th>
@@ -35,27 +35,40 @@
 		</thead>
 
 		<tbody>
+
                  <!--    -->
     		@foreach ($pedidosVenda as $pedido)
                 <tr role="row" class="odd">
 
+                    <td class="sorting_1"> {{ $pedido->id }}</td>
+                    <td>{{ $pedido->cliente->name }}</td>
+                    <td>{{ $pedido->created_at->format('d/m/Y')}}</td>
+                    <td>
+                        @if($pedido->produtosvenda->count('pedido_id')>0)
+                            {{strlen($pedido->produtosvenda[0]->product_sale_name)<= 20? $pedido->produtosvenda[0]->product_sale_name: substr($pedido->produtosvenda[0]->product_sale_name,0,-20)  }}
+                                {{$pedido->produtosvenda->count('pedido_id') >1? '+'.($pedido->produtosvenda->count('pedido_id')-1 ): '' }}
+                        @endif
+                    </td>
+                    @php
+                      $total=0;
+                      foreach($pedido->produtosvenda as $produtos){
+                          $total= $total+$produtos->pivot->total;
+                      }
 
-                    <td class="sorting_1">PRO - {{ $pedido->id }}</td>
-                    <td>{{ $pedido->supply_name }}</td>
-                    <td>{{ $pedido->set_date }}</td>
-                    <td>{{ $pedido->order_type }}</td>
-                    <td>{{ $pedido->prices }}</td>
+                    @endphp
+                    <td> R$ {{ number_format($total ,2,",",".") }}</td>
                     <td>{{ $pedido->installments }}</td>
                     <td>
                         <form action="" method="post">
                         @csrf
                         @method('delete')
-                            <a href="{{ route('pedido.edit', $pedido->order_id) }}" class="btn btn-warning">Editar</a>
+                            <a href="{{ route('pedidoVenda.edit',['pedidoVenda'=> $pedido->id]) }}" class="btn btn-warning">Editar</a>
 
                             <button type="submit"class="btn btn-danger">Excluir</button>
                         </form>
                     </td>
                 </tr>
+
             @endforeach
         </tbody>
 
