@@ -40,7 +40,7 @@
                 <tr role="row" class="odd">
 
                  
-                    <td class="sorting_1">PRO - {{ $pedido->order_id }}</td>
+                    <td class="sorting_1">PRO - {{ $pedido->id }}</td>
                     <td>{{ $pedido->supply_name }}</td>
                     <td>{{ $pedido->set_date }}</td>
                     <td>{{ $pedido->order_type }}</td>

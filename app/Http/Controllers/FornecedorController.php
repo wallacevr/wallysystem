@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Fornecedor;
 use App\Models\Banco;
 use App\Models\Estado;
-
+use Illuminate\Support\Facades\Auth;
 
 class FornecedorController extends Controller
 {
@@ -18,7 +18,7 @@ class FornecedorController extends Controller
      */
     public function index()
     {
-        $fornecedores = Fornecedor::all();
+        $fornecedores = Fornecedor::all()->where('empresa_id','=',Auth::user()->empresa_id);
 
         return view('fornecedor.index', compact('fornecedores'));
     }
@@ -45,6 +45,7 @@ class FornecedorController extends Controller
     public function store(Request $request)
     {
         
+       // $request->empresa_id=Auth::user()->empresa_id;
         
         Fornecedor::create($request->all());
 

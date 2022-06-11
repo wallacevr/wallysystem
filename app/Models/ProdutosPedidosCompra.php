@@ -4,24 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Produto;
-class Pedido extends Model
+use App\models\ProdutosPedidosCompra;
+class ProdutosPedidosCompra extends Model
 {
     use HasFactory;
-
-    protected $table = 'sp_order';
-
-    public $timestamps = false;
-
-    protected $primaryKey = 'id';
-
+    protected $table = 'pedidos_produtos_compra';
     protected $fillable = [
-           
-            'supply_name',
-            'set_date',
-            'order_type',            
-            'prices',
-            'installments',
+        'empresa_id',
+        'order_id',
+        'product_id',
+        'qtd',
+        'valor',
+        'desconto'
+
     ];
 
     protected $casts = [
@@ -30,10 +25,11 @@ class Pedido extends Model
     ];
     public function produtoscompra()
     {
-        return $this->belongsToMany(Produto::class, 'pedidos_produtos_compra', 'order_id', 'product_id')
+        return $this->belongsToMany(ProdutosPedidosCompra::class, 'pedidos_produtos_compra', 'order_id', 'prod_id')
         ->withPivot('qtd')
         ->withPivot('valor')
         ->withPivot('total')
         ->withPivot('desconto');
     }
 }
+      

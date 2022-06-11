@@ -25,7 +25,26 @@
 				<option value="2">Pessoa Física</option>
 			   </select>
 		</div>
-
+			<div class="col-md-6">
+				<label for="inputFirstName" class="form-label">CPF/CNPJ:</label>
+				<input type="text" class="form-control" name="cnpj">
+			</div>
+			<div class="col-md-6">
+				<label for="inputFirstName" class="form-label">Nome/Razão Social:</label>
+				<input type="text" class="form-control" name="name">
+			</div>
+			<div class="col-md-6">
+				<label for="inputFirstName" class="form-label">RG:</label>
+				<input type="text" class="form-control" name="rg">
+			</div>
+			<div class="col-md-6">
+				<label for="inputFirstName" class="form-label">I.E.:</label>
+				<input type="text" class="form-control" name="state_reg">
+			</div>
+			<div class="col-md-6">
+				<label for="inputFirstName" class="form-label">C.C.M.:</label>
+				<input type="text" class="form-control" name="municipal_reg">
+			</div>
             <div class="col-md-6">
 				<label for="inputFirstName" class="form-label">CEP:</label>
 				<input type="text" class="form-control" name="postal_code">

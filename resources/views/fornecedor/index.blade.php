@@ -42,7 +42,7 @@
                 <tr role="row" class="odd">
 
                  
-                    <td class="sorting_1">FOR - {{ $fornecedor->sup_id }}</td>
+                    <td class="sorting_1">FOR - {{ $fornecedor->id }}</td>
                     <td>{{ $fornecedor->person }}</td>
                     <td>{{ $fornecedor->name }}</td>
                     <td>{{ $fornecedor->postal_code }}</td>
@@ -55,7 +55,7 @@
                         @csrf
                         @method('delete')
                         
-                            <a href="{{ route('fornecedor.edit', $fornecedor->sup_id) }}" class="btn btn-warning">Editar</a>
+                            <a href="{{ route('fornecedor.edit',['fornecedor'=> $fornecedor->id]) }}" class="btn btn-warning">Editar</a>
 
                             <button type="submit" class="btn btn-danger">Excluir</button>
                         </form>    

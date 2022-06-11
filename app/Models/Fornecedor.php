@@ -17,7 +17,7 @@ class Fornecedor extends Model
 
     public $timestamps = false;
 
-    protected $primaryKey = 'sup_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
            
@@ -26,7 +26,7 @@ class Fornecedor extends Model
             'name',
             'rg',
             'cpf',
-            'cnjp',
+            'cnpj',
             'coop_name',
             'fantasy',
             'municipal_reg',
@@ -44,7 +44,8 @@ class Fornecedor extends Model
             'emails',
             'notes',
             'sup_ids',
-            'fantasy_cpf',            
+            'fantasy_cpf', 
+            'empresa_id'           
     ];
 
      //relacionamento da tabela retornando um relacionamento

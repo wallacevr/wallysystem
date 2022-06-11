@@ -40,7 +40,7 @@
                 <tr role="row" class="odd">
 
                  
-                    <td class="sorting_1">PRO - {{ $produto->prod_id }}</td>
+                    <td class="sorting_1">PRO - {{ $produto->id }}</td>
                     <td>{{ $produto->prod_name }}</td>
                     <td>{{ $produto->prod_category }}</td>
                     <td>{{ $produto->prod_unit }}</td>
@@ -50,7 +50,7 @@
                         <form action="" method="post">
                         @csrf
                         @method('delete')
-                            <a href="{{ route('produto.edit', $produto->prod_id) }}" class="btn btn-warning">Editar</a>
+                            <a href="{{ route('produto.edit', $produto->id) }}" class="btn btn-warning">Editar</a>
         
                             <button type="submit"class="btn btn-danger">Excluir</button>
                         </form>                        

@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Produto;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\ProdutoVenda;
 class ProdutoController extends Controller
 {
 
     public function index()
     {
-        $produtos = Produto::all();
+        $produtos = Produto::all()->where('empresa_id','=',Auth::user()->empresa_id);
 
         return view('produto.index', compact('produtos'));
     }
@@ -18,9 +19,9 @@ class ProdutoController extends Controller
 
     public function create()
     {
-        $produtos = Produto::all();
-
-        return view('produto.create', compact('produtos'));
+        $produtos = Produto::all()->where('empresa_id','=',Auth::user()->empresa_id);
+        $produtosvenda = ProdutoVenda::all()->where('empresa_id','=',Auth::user()->empresa_id);
+        return view('produto.create', compact('produtos','produtosvenda'));
     }
 
    

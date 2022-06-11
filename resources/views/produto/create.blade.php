@@ -38,6 +38,16 @@
 										<label for="inputAddress" class="form-label"></label>
 										<input type="text" class="form-control" name="prod_category" placeholder="Categoria" rows="1"></input>
 									</div>
+									<div class="col-6">
+										<label for="inputAddress" class="form-label"></label>
+										<select class="form-control"  name="prod_sale_id" id="prod_sale_id">
+												<option value="">Refernência a Produto de Venda </option>
+												@foreach($produtosvenda as $produtos)
+												<option value="{{ $produtos->product_sale_id }}">{{ $produtos->product_sale_name }} </option>	
+												@endforeach
+										</select>
+									</div>
+									
                                     <div class="col-6">
 										<label for="inputAddress" class="form-label"></label>
 										<input type="text" class="form-control" name="prod_unit" placeholder="Unidade" rows="1"></input>

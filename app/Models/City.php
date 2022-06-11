@@ -7,17 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 // definindo quais atributos do Model vão ser atribuidos em massa. estado.php    =    view ( fornecedores/create.blade)
 
-class Estado extends Model
+class City extends Model
 {
     use HasFactory;
 
-    protected $table = 'state';
+    protected $table = 'city';
 
     public $timestamps = false;
     
     protected $fillable = [
         'name', 
-        'abbreviation   ',
+        'ibge_code',
+        'state_id'
     ];    
     
 }

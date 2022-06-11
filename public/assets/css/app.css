@@ -2547,8 +2547,12 @@ a {
 
 .nav-search input.form-control::-ms-input-placeholder {
 
-	color: #fff!important
+	color: #000 !important
+	border-color: #000 !important;
+}
 
+.form-check-input{
+	color:#000 !important;
 }
 
 .round-pagination.pagination .page-item:first-child .page-link {
@@ -2889,6 +2893,13 @@ a {
 
 }
 
+.btnaddendereco{
+	background: none !important;
+	border: 1 !important;
+	border-color: #FFF !important;
+	border-radius:45px !important;
+	color: #FFF !important;
+}
 .chart-container1 {
 
 	position: relative;

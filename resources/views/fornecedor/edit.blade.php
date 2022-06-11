@@ -14,7 +14,7 @@
 		</div>
 
 		<hr>
-		<form method="post" action="{{ route('fornecedor.update', $fornecedor->sup_id) }}" class="row g-3">
+		<form method="post" action="{{ route('fornecedor.update', $fornecedor->id) }}" class="row g-3">
         @csrf
 		@method('PUT')
         

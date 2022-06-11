@@ -14,34 +14,23 @@
 		</div>
 
 		<hr>	
-		<form method="post" action="{{ route('pedido.store') }}" class="row g-3">
-        @csrf
-        @method('post')
+		<div class="row g-3">
+       
         
       
         
-        <div class="card-body p-2">
-		<div class="card-title d-flex align-items-center">
-			<div><i class=" me-1 font-22 text-white"></i>
-			</div>
-			<h5 class="mb-0 text-white">informações dos pedidos</h5>
-		</div>
-		<hr>		
-           	</div>           
-				 <div class="col-6">
-				 <label for="inputAddress" class="form-label"></label>
-				 				
-								<input type="text" class="form-control" name="prod_name" placeholder="Produto" rows="1"></input>
-									</div>
-									
-                                    <div class="col-6">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="prod_category" placeholder="Categoria" rows="1"></input>
-									
+			<div class="card-body p-2">
+				<div class="card-title d-flex align-items-center">
+					<div><i class=" me-1 font-22 text-white"></i>
+					</div>
+					<h5 class="mb-0 text-white">informações dos pedidos</h5>
+				</div>
+				<hr>		
+			</div>           
+				@livewire('create-pedido-compra')
 								
-								
-		</form>
-			</div>				
+	</div>
+</div>				
                                
 @endsection
     
