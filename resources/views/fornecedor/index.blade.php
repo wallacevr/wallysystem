@@ -25,11 +25,10 @@
         <thead>
 			<tr role="row">
                 <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" >ID</th>
-                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Pessoa</th>
+
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Nome</th>
-                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending">CEP</th>
-                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" >Endereço</th>
-                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" >Numero</th>
+
+
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending">Bairro</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending">Cidade</th>    
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending">Acao</th>
@@ -42,12 +41,11 @@
                 <tr role="row" class="odd">
 
                  
-                    <td class="sorting_1">FOR - {{ $fornecedor->id }}</td>
-                    <td>{{ $fornecedor->person }}</td>
+                    <td class="sorting_1">{{ $fornecedor->id }}</td>
+                    
                     <td>{{ $fornecedor->name }}</td>
-                    <td>{{ $fornecedor->postal_code }}</td>
-                    <td>{{ $fornecedor->address }}</td>
-                    <td>{{ $fornecedor->number }}</td>
+            
+              
                     <td>{{ $fornecedor->neighbourhood }}</td>
                     <td>{{ $fornecedor->city }}</td>
                     <td>

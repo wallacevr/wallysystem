@@ -75,7 +75,7 @@
 			<option selected=""></option>
 		
 		@foreach( $estados as $estado ) 
-		<option value="{{ $estado->st_name }}">{{ $estado->st_name }}
+		<option value="{{ $estado->id }}">{{ $estado->abbreviation }}
 		</option>
 		@endforeach	
 	
@@ -97,7 +97,10 @@
 				<label for="inputPassword" class="form-label">E-mails:</label>
 				<input type="email" class="form-control" name="emails">
 			</div>
-       
+			<div class="col-12">
+				<label for="inputAddress" class="form-label"></label>
+				<textarea type="text" class="form-control" id="inputAddress" placeholder="Notes" rows="3"></textarea>
+			</div>
 
         <div class="card-body p-5">
 		<div class="card-title d-flex align-items-center">
@@ -108,59 +111,57 @@
 
 		<hr>
 		
-        <a href="" class="btn btn-success float-right">Nova Conta Bancária</a>
-           	</div>
+      
+			<div class="row">
             
 								
-                                <div class="col-3">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="s_b_id" placeholder="Favorecido" rows="1"></input>
-									</div>
-                                    <div class="col-2">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="b_cpf" placeholder="CPF ou CNPJ" rows="1"></input>
-									</div>
-                                    <div class="col-3">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="bbank" placeholder="Banco" rows="1"></input>
-									</div>
-                                    <div class="col-3">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="agency" placeholder="Agência" rows="1"></input>
-									</div>
-                                    <div class="col-1">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="digit" placeholder="Dígito" rows="1"></input>
-									</div>
-                                    <div class="col-2">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="amount" placeholder="Conta" rows="1"></input>
-									</div>
-                                    <div class="col-1">
-										<label for="inputAddress" class="form-label"></label>
-										<input type="text" class="form-control" name="digit_amount" placeholder="Dígito" rows="1"></input>
-									</div>
-                                                    
-                                    <div class="col-md-4">
-										<label for="inputState" class="form-label"></label>
-										<select id="inputState" class="form-select">
-											<option selected="" name="type">POUPANÇA</option>
-											<option name="type_acc">CORRENTE</option>
-										</select>
-									</div>
-                                    <div class="col-2">
-										<label for="inputAddress" class="form-label"></label>
-										<textarea type="text" class="form-control" id="inputAddress" placeholder="Nota" rows="1"></textarea>
-									</div>
-									<div class="col-12">
-										<label for="inputAddress" class="form-label"></label>
-										<textarea type="text" class="form-control" id="inputAddress" placeholder="Notes" rows="3"></textarea>
-									</div>
-									<div class="col-12">
-										<button type="submit" class="btn btn-light px-5">Register</button>
-									</div>
-								</form>
+							<div class="col-6">
+								<label for="inputAddress" class="form-label"></label>
+								<input type="text" class="form-control" name="b_favorecido" placeholder="Favorecido" rows="1"></input>
 							</div>
+							<div class="col-6">
+								<label for="inputAddress" class="form-label"></label>
+								<input type="text" class="form-control" name="b_cpf" placeholder="CPF ou CNPJ" rows="1"></input>
+							</div>
+							<div class="col-6">
+								<label for="inputState" class="form-label"></label>
+								<select name="banco_id" class="form-select">
+									<option selected="" name="type">Banco</option>
+									<option value="104">Caixa Economica</option>
+									<option value="341">Itaú</option>
+								</select>
+							</div>
+							<div class="col-4">
+								<label for="inputAddress" class="form-label"></label>
+								<input type="text" class="form-control" name="agency" placeholder="Agência" rows="1"></input>
+							</div>
+							<div class="col-2">
+								<label for="inputAddress" class="form-label"></label>
+								<input type="text" class="form-control" name="digit" placeholder="Dígito" rows="1"></input>
+							</div>
+							<div class="col-4">
+								<label for="inputAddress" class="form-label"></label>
+								<input type="text" class="form-control" name="amount" placeholder="Conta" rows="1"></input>
+							</div>
+							<div class="col-2">
+								<label for="inputAddress" class="form-label"></label>
+								<input type="text" class="form-control" name="digit_amount" placeholder="Dígito" rows="1"></input>
+							</div>
+											
+							<div class="col-6">
+								<label for="inputState" class="form-label"></label>
+								<select id="type_acc" name="type_acc" class="form-select">
+									<option value="1">POUPANÇA</option>
+									<option value="2">CORRENTE</option>
+								</select>
+							</div>
+		
+							<div class="col-12 py-3">
+								<button type="submit" class="btn btn-light px-5">Register</button>
+							</div>
+						</form>
+			</div>
+</div>
 @endsection
     
 @section('script')

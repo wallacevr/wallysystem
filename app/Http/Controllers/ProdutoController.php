@@ -27,8 +27,16 @@ class ProdutoController extends Controller
    
     public function store(Request $request)
     {
-        $produto = Produto::create($request->all());
-
+        //$produto = Produto::create($request->all());
+        $produto = new Produto;
+        $produto->prod_name =  $request->prod_name;
+        $produto->prod_category =  $request->prod_category;
+        $produto->prod_unit =  $request->prod_unit;
+        $produto->prod_ncm =  $request->prod_ncm;
+        $produto->prod_note=  $request->prod_note;
+        $produto->product_sale_id =  $request->product_sale_id;
+        $produto->empresa_id     =  Auth::user()->empresa_id;
+        $produto->save();
         return redirect()->route('produto.index');
     }
   

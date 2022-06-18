@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 // definindo quais atributos do Model vão ser atribuidos em massa. banco.php    =    view ( fornecedores/create.blade)
 
-class Banco extends Model
+class BancoForn extends Model
 {
     use HasFactory;
 
@@ -15,8 +15,7 @@ class Banco extends Model
 
     protected $fillable = [
 
-        's_b_id', 
-        'bbank',
+        'banco_id',
         'agency', 
         'digit', 
         'amount',
@@ -26,6 +25,10 @@ class Banco extends Model
         'type_acc', 
         'b_favorecido',
         'b_cpf',    
+        'empresa_id',
+        'created_at',
+        'updated_at',
+        'deleted_at'  
         
     ];
 

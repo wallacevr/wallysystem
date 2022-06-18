@@ -1,8 +1,7 @@
 Falta:
-terminar cadastro de endereço de entrega e faturamento
-cadastro de pedido de compra
+
+Ajustar pedido de compras
 orçamento de compra
 fazer orçamento gerar pedido
 Incluir coluna estoque em produtos de venda
 limitar quantidade vendida a quantidade em estoque (trigger)
-Iniciar modulo de Compras 

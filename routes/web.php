@@ -25,7 +25,7 @@ Route::get('pagamento', function () {
 
 //Registrando as Rotas e os Verbos HTTP Padrões dos Endpoints
 
-Route::resource('/fornecedor', FornecedorController::class);
+//Route::resource('/fornecedor', FornecedorController::class);
 
 Route::resource('/pedido', PedidoController::class);
 Route::resource('/produto', ProdutoController::class);
@@ -57,10 +57,18 @@ Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function(){
         Route::prefix('cliente')->group(function(){
             Route::get('/listar', 'App\Http\Controllers\UserController@clienteindex')->name('cliente.index');
             Route::get('/cadastro', 'App\Http\Controllers\UserController@clientecreate')->name('cliente.create');
-            Route::post('/salvar', 'App\Http\Controllers\UserController@clientestore')->name('cliennte.store');
+            Route::post('/salvar', 'App\Http\Controllers\UserController@clientesstore')->name('cliente.store');
             Route::get('/alterar/{id}', 'App\Http\Controllers\UserController@clienteedit')->name('cliente.edit');
             Route::put('/alterar/{user}', 'App\Http\Controllers\UserController@clienteupdate')->name('cliente.update');
             Route::delete('/deletar/{user}', 'App\Http\Controllers\UserController@clientedestroy')->name('cliente.destroy');
+        });
+        Route::prefix('fornecedor')->group(function(){
+            Route::get('/', 'App\Http\Controllers\FornecedorController@index')->name('fornecedor.index');
+            Route::get('/cadastro', 'App\Http\Controllers\FornecedorController@create')->name('fornecedor.create');
+            Route::post('/salvar', 'App\Http\Controllers\FornecedorController@store')->name('fornecedor.store');
+            Route::get('/alterar/{fornecedor}', 'App\Http\Controllers\FornecedorController@edit')->name('fornecedor.edit');
+            Route::put('/alterar/{fornecedor}', 'App\Http\Controllers\FornecedorController@update')->name('fornecedor.update');
+            Route::delete('/deletar/{fornecedor}', 'App\Http\Controllers\FornecedorController@estroy')->name('fornecedor.destroy');
         });
 
 });

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             StatesTableSeeder::class,
             UFCitiesTableSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

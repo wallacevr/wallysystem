@@ -15,8 +15,7 @@ class CreateSpSuppBank extends Migration
     {
         Schema::create('sp_supp_bank', function (Blueprint $table) {
             $table->id();
-            $table->string('s_b_id'); 
-            $table->string('bbank');
+            $table->unsignedBigInteger('banco_id');
             $table->string('agency'); 
             $table->string('digit'); 
             $table->string('amount');

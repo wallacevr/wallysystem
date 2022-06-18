@@ -134,9 +134,9 @@ class UserController extends Controller
             $usuario->email       =   $request->email;
             $usuario->password    =   Hash::make($request->password);
             $usuario->grupo_id    =   1;
-            $usuario->empresa     =  Auth::user()->empresa_id;
+            $usuario->empresa_id     =  Auth::user()->empresa_id;
             $usuario->save();
-            return redirect()->route('clientes.index')->withSuccess('Cliente cadastrado com sucesso!');
+            return redirect()->route('cliente.index')->withSuccess('Cliente cadastrado com sucesso!');
 
         } catch (\Throwable $Error) {
             //throw $th;
